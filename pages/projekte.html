@@ -8,6 +8,7 @@
     <link rel="icon" href="/img/Kleiderspende_Logo_Transparent.png" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+    <script src="/script_projekte.js" defer></script>
 </head>
 <body class="d-flex flex-column font-family-base;" style="min-height: 100vh;">
     <header >
@@ -37,8 +38,101 @@
         </nav>
     </header>
     <main class="container-fluid flex-grow-1">
-        <h1>test PROJEKTE</h1>
-
+        <div class="container mt-5">
+            <div id="carouselProjects" class="carousel slide carousel-fade">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselProjects" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselProjects" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselProjects" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    <button type="button" data-bs-target="#carouselProjects" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                    <button type="button" data-bs-target="#carouselProjects" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item carousel-item-1 active">
+                    <img src="/img/Haiti.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-sm-block">
+                        <h5>Haiti</h5>
+                        <p>Wärme für die Insel: Nothilfe nach Naturkatastrophen</p>
+                    </div>
+                    </div>
+                    <div class="carousel-item carousel-item-2">
+                    <img src="/img/Bangladesch.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-sm-block">
+                        <h5>Bangladesch</h5>
+                        <p>Trockene Füße, warme Herzen: Hilfe für Flutgebiete</p>
+                    </div>
+                    </div>
+                    <div class="carousel-item carousel-item-3">
+                    <img src="/img/Äthiopien.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-sm-block">
+                        <h5>Äthiopien</h5>
+                        <p>Kleider für das Hochland: Hilfe bei Dürre und Hunger</p>
+                    </div>
+                    </div>
+                    <div class="carousel-item carousel-item-4">
+                    <img src="/img/Indien.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-sm-block">
+                        <h5>Indien</h5>
+                        <p>Zweite Haut: Kleidung für Indiens Straßenkinder</p>
+                    </div>
+                    </div>
+                    <div class="carousel-item carousel-item-5">
+                    <img src="/img/Afghanistan.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-sm-block">
+                        <h5>Afghanistan</h5>
+                        <p>Winterhilfe in den Bergen: Schutz vor Kälte</p>
+                    </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselProjects" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselProjects" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+                </div>
+            </div>
+            <div class="container d-flex mt-2 mt-sm-5">
+                <div >
+                    <div id="description-1" >
+                        <div class="d-sm-none text-center">
+                            <h5><strong>Haiti</strong></h5>
+                            <p><i>Wärme für die Insel: Nothilfe nach Naturkatastrophen</i></p>
+                        </div>
+                        <p>Haiti wird regelmäßig von schweren Erdbeben und tropischen Stürmen heimgesucht. Viele Menschen leben in provisorischen Unterkünften ohne Zugang zu stabiler Infrastruktur. Unser Projekt unterstützt Familien mit warmer Kleidung, Decken und Schuhen, besonders in entlegenen Regionen, in denen Hilfe oft zu spät ankommt.</p>
+                    </div>
+                    <div id="description-2" style="display: none;">
+                        <div class="d-sm-none text-center">
+                            <h5><strong>Bangladesch</strong></h5>
+                            <p><i>Trockene Füße, warme Herzen: Hilfe für Flutgebiete</i></p>
+                        </div>
+                        <p>Bangladesch ist eines der am stärksten von Überschwemmungen betroffenen Länder der Welt. In der Monsunzeit verlieren jährlich Tausende ihr Zuhause. Unsere Hilfspakete enthalten wetterfeste Kleidung für Kinder und Erwachsene, die wir gezielt in die Regionen liefern, die nach Überschwemmungen am dringendsten Unterstützung benötigen.</p>
+                    </div>
+                    <div id="description-3" style="display: none;">
+                        <div class="d-sm-none text-center">
+                            <h5><strong>Äthiopien</strong></h5>
+                            <p><i>Kleider für das Hochland: Hilfe bei Dürre und Hunger</i></p>
+                        </div>
+                        <p>Äthiopien leidet unter wiederkehrenden Dürreperioden und Ernährungskrisen. Besonders in ländlichen Gebieten fehlt es an grundlegender Versorgung. Unser Projekt versorgt notleidende Familien mit tragbarer Alltagskleidung, um insbesondere Kinder vor Auskühlung in der Nacht und in höher gelegenen Regionen zu schützen.</p>
+                    </div>
+                    <div id="description-4" style="display: none;">
+                        <div class="d-sm-none text-center">
+                            <h5><strong>Indien</strong></h5>
+                            <p><i>Zweite Haut: Kleidung für Indiens Straßenkinder</i></p>
+                        </div>
+                        <p>In vielen Großstädten Indiens leben Kinder auf der Straße oder in einfachen Behausungen ohne Schutz vor Hitze, Regen oder Kälte. Wir arbeiten mit lokalen Partnern zusammen, um Kleidung gezielt an Hilfszentren, Schulen und mobile Gesundheitsteams zu verteilen. Die Kleidung hilft nicht nur körperlich, sie bedeutet auch ein Stück Würde.</p>
+                    </div>
+                    <div id="description-5" style="display: none;">
+                        <div class="d-sm-none text-center">
+                            <h5><strong>Afghanistan</strong></h5>
+                            <p><i>Winterhilfe in den Bergen: Schutz vor Kälte</i></p>
+                        </div>
+                        <p>In Afghanistans abgelegenen Bergregionen herrschen im Winter Temperaturen weit unter dem Gefrierpunkt. Viele Familien sind auf sich allein gestellt. Unser Projekt bringt warme Kleidung, Jacken und Decken in schwer erreichbare Dörfer, wo insbesondere Kinder und ältere Menschen auf diese Hilfe angewiesen sind.</p>
+                    </div>
+                </div>
+            </div>
     </main>
     <footer class="footer bg-body-tertiary"> 
         <ul class="nav justify-content-center pb-1 mb-1"> 
@@ -50,7 +144,8 @@
             </li> 
         </ul> 
     </footer>
-</body>
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+  </body>
 </html>
 
     

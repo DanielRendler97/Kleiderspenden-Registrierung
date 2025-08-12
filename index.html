@@ -7,7 +7,10 @@
     <link rel="stylesheet" href="/styles.css" />
     <link rel="icon" href="/img/Kleiderspende_Logo_Transparent.png" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="/script_index.js" defer></script>
 </head>
 <body class="d-flex flex-column font-family-base;" style="min-height: 100vh;">
     <header >
@@ -26,7 +29,7 @@
                     <a class="nav-link text-nowrap"  href="/pages/ueber_uns.html">Über uns</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " href="/pages/faq.html">FAQ</a>
+                    <a class="nav-link " href="/pages/test.html">FAQ</a>
                 </li>
                 <li class="nav-item ">
                     <a class="nav-link " href="/pages/projekte.html">Projekte</a>
@@ -38,38 +41,108 @@
     </header>
     <main class="container-fluid flex-grow-1">
        <div class="card text-white position-relative">
-            <img src="img/sarah-brown-oa7pqZmmhuA-unsplash.jpg" class="card-img " alt="...">
+            <img src="img/Kleiderspende.jpg" class="card-img " alt="..."> 
                 <div class="card-img-overlay h-100 text-center d-flex flex-column">
                     <h1 class="card-text font-family-base">Jede Spende hilft!</h1>
                     <p class="card-text ">Unterstützen Sie jetzt hilfsbedürftige Menschen in Kriesenregionen</p>
                     <div class="p-5 d-none d-md-block"></div>
-                    <div class="card-text p-5 align-self-center d-none d-sm-block">
-                        <button type="button" class="btn button-registrieren-bild btn-danger rounded-pill">Spende jetzt registrieren</button>
+                    <div class="card-text p-5 align-self-center d-none d-sm-block" >
+                        <button type="button"  class="btn button-registrieren-bild btn-primary rounded-pill" id="button-registrieren-img" onclick="buttonRegestrieren()">Spende jetzt registrieren</button>
                     </div>
                 </div>
-            </div>
-        <div class="p-4 p-lg-0"> </div>
-        <div class="button-registrieren text-center d-sm-none">
-            <button type="button" class="btn btn-danger rounded-pill">Spende jetzt registrieren</button>
         </div>
-        <div class="p-4 p-lg-0"></div>
-
-        <div class="formular d-flex flex-row justify-content-center">
-            <form >
-            <div class="form-row ">
-                <div class=" my-1">
-                <label class="mr-sm-2" for="inlineFormCustomSelect">Abgabeort</label>
-                <select class="custom-select  mr-sm-2" id="inlineFormCustomSelect">
-                    <option selected>Wähle...</option>
-                    <option value="1">Lokale Abgabe</option>
-                    <option value="2">Abholung</option>
-                </select>
-                </div>
-                <div class="col-auto my-1 d-flex justify-content-center">
-                <button type="submit" class="btn btn-primary ">Wählen</button>
+        <div class="p-4 p-lg-0"> </div>
+        <div class="button-registrieren text-center d-sm-none" id="button-registrieren">
+            <button type="button" class="btn btn-outline-primary rounded-pill" onclick="buttonRegestrieren()">Spende jetzt registrieren</button>
+        </div>
+        <div class="FormularEingabe container-fluid align-content-center" style="display: none; min-height: 50vw; position: relative;" id="FormularEingabe">
+            <div class="container-fluid">
+                <div class="formular">
+                    <form class="d-flex justify-content-center">
+                        <div class="form-row" id="AuswahlAbholort">
+                            <div class="form-group ">
+                                <label class="mb-2" for="inlineFormAbgabeort">Abgabeort:</label>
+                                <select class="form-select form-select-md" id="inlineFormAbgabeort" >
+                                    <option selected>Wähle...</option>
+                                    <option value="1">Übergabe an der Geschäftsstelle</option>
+                                    <option value="2">Abholung</option>
+                                </select>
+                                <p class="invisible text-center text-danger" id="AuswahlAbholortFalsch">Bitte Ort für Übergabe wählen</p>
+                            </div>
+                            <div class="col-auto my-1 d-flex justify-content-center">
+                            <button type="button" class="btn btn-outline-primary rounded-pill" onclick="buttonAuswLokAbh()">Wählen</button>
+                            </div>
+                        </div>
+                    </form>
+                    <form class="d-flex justify-content-center">
+                        <div class="d-none col-sm-8 col-lg-4 mt-5" id="KleidungRegionAuswahl">
+                            <div class="my-1 mb-2 ">
+                                <label class=" mb-2" for="inlineFormArtKleidung">Art der Kleidung:</label>
+                                <select class="form-select form-select-md" id="inlineFormArtKleidung">
+                                    <option selected>Wähle...</option>
+                                    <option value="1">Oberbekleidung</option>
+                                    <option value="2">Unterbekleidung & Hosen</option>
+                                    <option value="3">Kinder- & Babybekleidung</option>
+                                    <option value="4">Schuhe & Zubehör</option>
+                                    <option value="5">Gemischt</option>
+                                </select>
+                            </div>
+                            <div class="my-1 mb-3 ">
+                                <label class="mb-1" for="inlineFormKriesenregion">Spenden für:</label>
+                                <select class="form-select form-select-md" id="inlineFormKriesenregion">
+                                    <option selected>Wähle...</option>
+                                    <option value="1">Haiti</option>
+                                    <option value="2">Bangladesch</option>
+                                    <option value="3">Äthiopien</option>
+                                    <option value="4">Indien</option>
+                                    <option value="5">Afghanistan</option>
+                                </select>
+                            </div>
+                            <div class="d-none" id="AuswahlAdresseAbholung">
+                                <div class="d-flex mb-3">
+                                    <div class="col-6">
+                                        <label for="inputVorname" class="form-label">Vorname:</label>
+                                        <input type="text" class="form-control" id="inputVorname" placeholder="Vorname">
+                                    </div>
+                                    <div class="col-6 ms-1">
+                                        <label for="inputNachname" class="form-label">Nachname:</label>
+                                        <input type="text" class="form-control" id="inputNachname" placeholder="Nachname">
+                                    </div>
+                                </div>
+                                <div class="d-flex mb-3">
+                                    <div class="col-9">
+                                        <label for="inputStrasse" class="form-label">Straße:</label>
+                                        <input type="text" class="form-control" id="inputStrasse" placeholder="Straße">
+                                    </div>
+                                    <div class="ms-3">
+                                        <label for="inputHausNr" class="form-label ">Nr.:</label>
+                                        <input type="text" class="form-control" id="inputHausNr" placeholder="Nr.">
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <div class=" mb-3 ">
+                                        <label for="inputPlz" class="form-label">PLZ:</label>
+                                        <input type="text" class="form-control " id="inputPlz" placeholder="12xxx">
+                                    </div>
+                                    <div class="col-8 ms-3">
+                                        <label for="inputOrt" class="form-label">Ort:</label>
+                                        <input type="text" class="form-control" id="inputOrt" placeholder="Ort">
+                                    </div>
+                                </div>
+                                <p class="d-none text-center text-danger" id="AuswahlPlzFalsch">Postleitzahl muss sich in 12xxx befinden</p>
+                                <div class="mb-3">
+                                    <label for="inputDateTime" class="form-label">Abholdatum & Uhrzeit:</label>
+                                    <input type="datetime-local" class="form-control" id="inputDateTime" placeholder="Datum-/ Uhrzeit">
+                                </div>
+                            </div>
+                            <p class="invisible text-center text-danger" id="AuswahlWerteFehlen">Bitte vollständige Auswahl treffen</p>
+                            <div class="d-flex mb-3 justify-content-center">
+                                <button type="button" class="btn btn-outline-primary rounded-pill" onclick="buttonAuswahlBest()">Bestätigen</button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
-            </form>
         </div>
 
     </main>
@@ -83,7 +156,9 @@
             </li> 
         </ul> 
     </footer>
-</body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    </body>
 </html>
 
     

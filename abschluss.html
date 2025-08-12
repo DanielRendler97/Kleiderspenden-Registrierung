@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kleiderspende e.V.</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <link rel="icon" href="/img/Kleiderspende_Logo_Transparent.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+    <script src="/script_abschluss.js" defer></script>
+</head>
+<body class="d-flex flex-column font-family-base;" style="min-height: 100vh;">
+    <header >
+        <nav class="navbar navbar-expand-sm bg-body-tertiary ">
+        <div class="container-fluid gap-2">
+            <a href="/">
+                <img class="img-fluid" width="100" height="100" src="/img/Kleiderspende_Logo_Transparent.png" alt="Logo Kleiderspende">
+            </a>
+            <a class="navbar-brand  p-sm-4" href="/index.html" >Kleiderspende e.V.</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse " id="navbarNav">
+            <ul class="navbar-nav container-fluid justify-content-end">
+                <li class="nav-item ">
+                    <a class="nav-link text-nowrap"  href="/pages/ueber_uns.html">Über uns</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="/pages/test.html">FAQ</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link " href="/pages/projekte.html">Projekte</a>
+                </li>
+            </ul>
+            </div>
+        </div>
+        </nav>
+    </header>
+    <main class="container-fluid flex-grow-1">
+        <div class="mt-5 text-center">
+            <h1 >Ihre Spende wurde bestätigt, vielen Dank!</h1>
+        </div>
+        <div class="mt-5">
+            <div class="container-fluid">
+                <div class="d-flex align-items-center ">
+                    <p class="col-7 col-sm-5 col-md-3 col-xl-2"><strong>Art der Kleidung:</strong></p>
+                    <p id="bestArt"></p>
+                </div>
+                <div class="d-flex align-items-center">
+                    <p class="col-7 col-sm-5 col-md-3 col-xl-2"><strong>Krisengebiet:</strong></p>
+                    <p id="bestGebiet"></p>
+                </div>
+                <div class="d-flex align-items-center">
+                    <p class="col-7 col-sm-5 col-md-3 col-xl-2"><strong>Datum:</strong></p>
+                    <p id="bestDatum"></p>
+                </div>
+                <div class="d-flex align-items-center">
+                    <p class="col-7 col-sm-5 col-md-3 col-xl-2"><strong>Uhrzeit:</strong></p>
+                    <p id="bestUhrzeit"></p>
+                </div>
+                <div class="d-flex align-items-center">
+                    <p class="col-7 col-sm-5 col-md-3 col-xl-2"><strong>Ort:</strong></p>
+                    <p id="bestOrt"></p>
+                </div>
+                <div class="d-flex align-items-center">
+                    <p class="col-7 col-sm-5 col-md-3 col-xl-2"><strong>Spendennummer:</strong></p>
+                    <p id="bestSpendennummer"></p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="footer bg-body-tertiary"> 
+        <ul class="nav justify-content-center pb-1 mb-1"> 
+            <li class="nav-item">
+                <a href="/pages/datenschutz.html" class="nav-link px-2 text-body-secondary">Datenschutz</a>
+            </li> 
+            <li class="nav-item">
+                <a href="/pages/impressum.html" class="nav-link px-2 text-body-secondary">Impressum</a>
+            </li> 
+        </ul> 
+    </footer>
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+</body>

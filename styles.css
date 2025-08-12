@@ -48,3 +48,27 @@
   width: 15rem;
   height: 3rem;
 }
+.button-registrieren-bild:hover{
+  background-color: transparent !important;
+}
+.accordion-button.collapsed{
+  background-color: rgb(248, 249, 250);
+}
+.carousel-item img{
+  height: 400px;
+  object-fit:cover;
+}
+.carousel-item-2 img, .carousel-item-4 img{
+  margin-top: 100;
+  object-position: top;
+}
+.carousel-item-3 img, .carousel-item-5 img{
+  margin-top: 100;
+  object-position: bottom;
+}
+.carousel-caption{
+    background: linear-gradient(180deg,rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%);
+    left: 0 !important; 
+    right: 0 !important;
+    bottom: 0 !important;
+}
