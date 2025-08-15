@@ -39,8 +39,21 @@ function buttonAuswahlBest(){
 
     let inputs = [valueVorname, valueNachname, valueStrasse, valueHausNr, valuePlz, valueOrt, valueDatumZeit]
 
-    function checkInvalid (){
+    function verifiPlz(obj, startNr = '12'){
+            if (Number.isInteger(parseInt(obj.value))){
 
+                if (obj.value.length != 5 || (! obj.value.startsWith(startNr))){
+                    document.getElementById('AuswahlPlzFalsch').classList.remove('d-none')
+                    setInvalid(obj, true)
+                    obj.value = ''
+                }
+                else {
+                    document.getElementById('AuswahlPlzFalsch').classList.add('d-none')
+                    return true;
+                }
+            }
+        }
+        
         function setInvalid(obj, set = false){
             if (set){
                 obj.classList.add('is-invalid')
@@ -60,19 +73,7 @@ function buttonAuswahlBest(){
             }
         }
 
-        function verifiPlz(obj, startNr = '12'){
-            if (Number.isInteger(parseInt(obj.value))){
-
-                if (obj.value.length != 5 || (! obj.value.startsWith(startNr))){
-                    document.getElementById('AuswahlPlzFalsch').classList.remove('d-none')
-                    setInvalid(obj, true)
-                    obj.value = ''
-                }
-                else {
-                    document.getElementById('AuswahlPlzFalsch').classList.add('d-none')
-                }
-            }
-        }
+    function checkInvalid (){
 
         document.getElementById('AuswahlWerteFehlen').classList.remove('invisible')
         
@@ -99,7 +100,6 @@ function buttonAuswahlBest(){
             }
             checkNumber(valueHausNr)
             checkNumber(valuePlz)
-            verifiPlz(valuePlz, '12')
         }
     }
 
@@ -120,7 +120,7 @@ function buttonAuswahlBest(){
             localStorage.setItem('bestUhrzeit', valueDatumZeit.value.split(" ")[1]);
             localStorage.setItem('bestOrt', adresse);
         }
-        window.location.href = "abschluss.html"
+        window.location.href = "/pages/abschluss.html"
     }
 
     if (isLokaleAbgabe){
@@ -133,7 +133,7 @@ function buttonAuswahlBest(){
     }
     else if ((! (valueArt.value.length >> 1)) && (! (valueRegion.value.length >> 1)) &&
                     (valueStrasse.value.length >> 1) && (Number.isInteger(parseInt(valueHausNr.value))) &&
-                    (valuePlz.value.length >> 1) && (valueOrt.value.length >> 1) &&
+                    (verifiPlz(valuePlz, startNr = '12')) && (valueOrt.value.length >> 1) &&
                     (valueDatumZeit.value.length >> 1) &&
                     (valueVorname.value.length >> 1) && (valueNachname.value.length >> 1)){
         setAbschluss();
@@ -146,9 +146,9 @@ function buttonAuswahlBest(){
 
 flatpickr("#inputDateTime", {
 enableTime: true,
-dateFormat: "d-m-Y H:i",
+dateFormat: "Y-m-d H:i",
 time_24hr: true,
-minDate: "today" // verhindert Auswahl von Vergangenem
+minDate: "today" 
 });
 
 
